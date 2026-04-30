@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { courses, learningPaths } from '../data/courses';
 import SectionTitle from '../components/ui/SectionTitle';
+import { BRAND } from '../config/brand';
 
 export default function HomePage() {
   const featured = courses.slice(0, 3);
@@ -8,7 +9,7 @@ export default function HomePage() {
   return (
     <div className="space-y-14">
       <section className="relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-[#0d1424] p-8">
-        <img src="https://images.unsplash.com/photo-1518081461904-9a742e3b0126?auto=format&fit=crop&w=1600&q=80" className="absolute inset-0 h-full w-full object-cover opacity-25" />
+        <img src={BRAND.heroImage} className="absolute inset-0 h-full w-full object-cover opacity-25" />
         <div className="relative">
           <p className="text-sm uppercase text-cyan-300">Aritium Academy</p>
           <h1 className="mt-2 text-4xl font-bold leading-tight md:text-5xl">Formación tecnológica con estética moderna y enfoque profesional</h1>
