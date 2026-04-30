@@ -18,8 +18,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-aritium-dark/90 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Link to="/" className="flex items-center gap-2 text-xl font-bold text-cyan-300">
-          <img src={BRAND.logoMark} alt="Aritium" className="h-8 w-8 rounded object-contain" onError={(e) => ((e.currentTarget.style.display = 'none'))} />
-          {BRAND.name}
+          <img src={BRAND.logo} alt="Aritium" className="h-8 object-contain" />
         </Link>
         <button className="md:hidden" onClick={() => setOpen((v) => !v)}>☰</button>
         <div className="hidden items-center gap-6 md:flex">

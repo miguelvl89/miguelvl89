@@ -5,11 +5,11 @@ export default {
     extend: {
       colors: {
         aritium: {
-          primary: '#007bff',
-          dark: '#1e293b',
-          section: '#2c3e50',
-          card: '#34495e',
-          gray: '#6c757d',
+          primary: '#2f2bff',
+          dark: '#05070d',
+          section: '#0c1120',
+          card: '#111827',
+          gray: '#9ca3af',
           text: '#e5e7eb'
         }
       }
