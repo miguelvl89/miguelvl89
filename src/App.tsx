@@ -17,6 +17,11 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/cursos" element={<CoursesPage />} />
         <Route path="/curso/:slug" element={<CourseDetailPage />} />
+        
+        <Route path="/smart-healthcare" element={<SimplePage title="Smart Healthcare" />} />
+        <Route path="/casos-exito" element={<SimplePage title="Casos de éxito" />} />
+        <Route path="/quienes-somos" element={<SimplePage title="Quiénes Somos" />} />
+        <Route path="/recursos" element={<SimplePage title="Recursos" />} />
         <Route path="/certificaciones" element={<SimplePage title="Certificaciones" />} />
         <Route path="/mentoria" element={<SimplePage title="Mentoría" />} />
         <Route path="/contenidos" element={<SimplePage title="Contenidos" />} />
