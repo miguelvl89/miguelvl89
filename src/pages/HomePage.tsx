@@ -1,42 +1,52 @@
 import { Link } from 'react-router-dom';
 import { courses, learningPaths } from '../data/courses';
+import SectionTitle from '../components/ui/SectionTitle';
 
 export default function HomePage() {
   const featured = courses.slice(0, 3);
 
   return (
     <div className="space-y-14">
-      <section className="rounded-2xl bg-gradient-to-r from-aritium-section to-aritium-card p-8">
-        <p className="text-sm uppercase text-aritium-primary">Plataforma de formación</p>
-        <h1 className="mt-2 text-4xl font-bold">Aprende IoT e IA como en una academia tipo Platzi</h1>
-        <p className="mt-3 max-w-2xl text-aritium-text/90">Rutas de aprendizaje, clases por lección, progreso en tiempo real y comunidad técnica.</p>
-        <div className="mt-6 flex gap-3">
-          <Link to="/cursos" className="rounded bg-aritium-primary px-4 py-2">Explorar cursos</Link>
-          <Link to="/login" className="rounded border border-white/20 px-4 py-2">Comenzar ahora</Link>
+      <section className="relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-[#0d1424] p-8">
+        <img src="https://images.unsplash.com/photo-1518081461904-9a742e3b0126?auto=format&fit=crop&w=1600&q=80" className="absolute inset-0 h-full w-full object-cover opacity-25" />
+        <div className="relative">
+          <p className="text-sm uppercase text-cyan-300">Aritium Academy</p>
+          <h1 className="mt-2 text-4xl font-bold leading-tight md:text-5xl">Formación tecnológica con estética moderna y enfoque profesional</h1>
+          <p className="mt-3 max-w-2xl text-aritium-text/90">Aprende IoT, IA y Datos con rutas guiadas, lecciones prácticas y seguimiento continuo.</p>
+          <div className="mt-6 flex gap-3">
+            <Link to="/cursos" className="rounded bg-cyan-400 px-4 py-2 font-semibold text-black">Explorar cursos</Link>
+            <Link to="/login" className="rounded border border-white/30 px-4 py-2">Comenzar ahora</Link>
+          </div>
         </div>
       </section>
 
       <section>
-        <h2 className="mb-4 text-2xl font-semibold">Rutas de aprendizaje</h2>
+        <SectionTitle title="Rutas de aprendizaje" subtitle="Especialízate con itinerarios orientados al mercado." />
         <div className="grid gap-4 md:grid-cols-3">
           {learningPaths.map((path) => (
-            <article key={path.id} className="rounded-xl bg-aritium-card p-5">
-              <h3 className="text-lg font-semibold">{path.title}</h3>
-              <p className="text-sm text-aritium-text/90">{path.description}</p>
+            <article key={path.id} className="overflow-hidden rounded-2xl border border-white/10 bg-aritium-card">
+              <img src={path.image} alt={path.title} className="h-36 w-full object-cover" />
+              <div className="p-4">
+                <h3 className="text-lg font-semibold">{path.title}</h3>
+                <p className="text-sm text-aritium-text/90">{path.description}</p>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
       <section>
-        <h2 className="mb-4 text-2xl font-semibold">Cursos destacados</h2>
+        <SectionTitle title="Cursos destacados" subtitle="Empieza por los más populares de la comunidad." />
         <div className="grid gap-4 md:grid-cols-3">
           {featured.map((course) => (
-            <article key={course.id} className="rounded-xl bg-aritium-card p-5">
-              <p className="text-sm text-aritium-primary">★ {course.rating} · {course.students} estudiantes</p>
-              <h3 className="text-lg font-semibold">{course.title}</h3>
-              <p className="text-sm text-aritium-text/90">{course.description}</p>
-              <Link className="mt-3 inline-block text-aritium-primary" to={`/curso/${course.slug}`}>Ver curso</Link>
+            <article key={course.id} className="overflow-hidden rounded-2xl border border-white/10 bg-aritium-card">
+              <img src={course.coverImage} alt={course.title} className="h-40 w-full object-cover" />
+              <div className="p-4">
+                <p className="text-sm text-cyan-300">★ {course.rating} · {course.students} estudiantes</p>
+                <h3 className="text-lg font-semibold">{course.title}</h3>
+                <p className="text-sm text-aritium-text/90">{course.description}</p>
+                <Link className="mt-3 inline-block text-cyan-300" to={`/curso/${course.slug}`}>Ver curso</Link>
+              </div>
             </article>
           ))}
         </div>

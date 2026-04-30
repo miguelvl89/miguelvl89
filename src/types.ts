@@ -20,6 +20,7 @@ export type Course = {
   students: number;
   lessons: Lesson[];
   path: 'iot' | 'ia' | 'datos';
+  coverImage: string;
 };
 
 export type UserProgress = {

@@ -14,19 +14,22 @@ export default function CourseDetailPage() {
 
   return (
     <section className="space-y-6">
-      <div className="rounded-xl bg-aritium-section p-8">
-        <p className="text-sm text-aritium-primary">{course.path.toUpperCase()} · {course.level.toUpperCase()}</p>
-        <h1 className="text-3xl font-bold">{course.title}</h1>
-        <p className="mt-2">{course.description}</p>
-        <p className="text-sm text-aritium-text/80">Instructor: {course.instructor} · Duración: {course.duration}</p>
+      <div className="relative overflow-hidden rounded-2xl border border-cyan-400/20 p-8">
+        <img src={course.coverImage} alt={course.title} className="absolute inset-0 h-full w-full object-cover opacity-25" />
+        <div className="relative">
+          <p className="text-sm text-cyan-300">{course.path.toUpperCase()} · {course.level.toUpperCase()}</p>
+          <h1 className="text-3xl font-bold">{course.title}</h1>
+          <p className="mt-2">{course.description}</p>
+          <p className="text-sm text-aritium-text/80">Instructor: {course.instructor} · Duración: {course.duration}</p>
+        </div>
       </div>
 
-      <div className="rounded-xl bg-black/30 p-6">
+      <div className="rounded-xl border border-white/10 bg-black/30 p-6">
         <h2 className="text-xl font-semibold">Clase en reproducción</h2>
         <div className="mt-3 flex h-56 items-center justify-center rounded bg-black/50">🎬 Player de video (placeholder)</div>
       </div>
 
-      <div className="rounded-xl bg-aritium-card p-6">
+      <div className="rounded-xl border border-white/10 bg-aritium-card p-6">
         <h2 className="text-xl font-semibold">Temario ({completed}/{course.lessons.length} completadas)</h2>
         <ul className="mt-3 space-y-2">
           {course.lessons.map((lesson, idx) => (
@@ -36,7 +39,7 @@ export default function CourseDetailPage() {
             </li>
           ))}
         </ul>
-        <button className="mt-4 rounded bg-aritium-primary px-4 py-2" onClick={() => completeLesson(course.id)}>Marcar lección completada</button>
+        <button className="mt-4 rounded bg-cyan-400 px-4 py-2 font-semibold text-black" onClick={() => completeLesson(course.id)}>Marcar lección completada</button>
       </div>
     </section>
   );
